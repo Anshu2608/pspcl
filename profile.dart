@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pspcl/home_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'logout_confirmation_dialog.dart'; // Import the logout confirmation dialog
+import 'logout_confirmation_dialog.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     if (pickedFile != null) {
       setState(() {
-        _image = File(pickedFile.path); // Update the image file
+        _image = File(pickedFile.path);
       });
     }
   }
@@ -27,6 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           'Profile',
@@ -49,19 +50,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
         actions: [
           IconButton(
             icon: SvgPicture.asset(
-              'assets/images/layout.svg', // Replace with your SVG asset path
+              'assets/images/layout.svg',
               color: Colors.blue,
               width: 30,
               height: 24,
             ),
             onPressed: () {
-              // Implement image functionality
+
             },
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0), // Add padding to left and right
+        padding: const EdgeInsets.symmetric(horizontal: 40.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -77,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(30),
                         image: DecorationImage(
                           image: _image == null
-                              ? const NetworkImage('https://via.placeholder.com/150') // Default image
+                              ? const NetworkImage('https://via.placeholder.com/150')
                               : FileImage(_image!),
                           fit: BoxFit.cover,
                         ),
@@ -87,9 +88,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       bottom: 0.1,
                       right: 0.1,
                       child: GestureDetector(
-                        onTap: _pickImage, // Open image picker on tap
+                        onTap: _pickImage,
                         child: SvgPicture.asset(
-                          'assets/images/Edit.svg', // Use SvgPicture for SVG
+                          'assets/images/Edit.svg',
                           width: 25,
                           height: 25,
                         ),
@@ -136,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const Divider(color: Colors.grey),
               _buildListTile('Settings', 13.0),
               const Divider(color: Colors.grey),
-              _buildListTile('Logout', 13.0), // Logout ListTile
+              _buildListTile('Logout', 13.0),
               const SizedBox(height: 5),
               _buildSocialMediaIcons(),
               const SizedBox(height: 20),
@@ -147,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  // Updated ListTile method to accept text size
+
   ListTile _buildListTile(String title, double textSize) {
     return ListTile(
       title: Row(
@@ -164,7 +165,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         if (title == 'Logout') {
           _showLogoutConfirmationDialog();
         } else {
-          // Implement navigation for other items
+
         }
       },
     );
@@ -177,8 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       builder: (BuildContext context) {
         return LogoutConfirmationDialog(
           onLogoutConfirmed: () {
-            // Handle the logout logic here
-            // e.g., clear user data, navigate to login screen, etc.
+
           },
         );
       },
@@ -191,7 +191,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _buildSocialMediaIcon(
-          iconPath: 'assets/images/insta.svg',
+          iconPath: 'assets/images/instagram.svg',
           label: 'Insta',
           onPressed: () {
             // Navigate to Instagram
@@ -234,12 +234,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 60, // Adjust width for the circular container
-          height: 60, // Adjust height for the circular container
+          width: 60,
+          height: 60,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white, // Background color for the circle
-            border: Border.all(color: Colors.grey, width: 1), // Grey border
+            color: Colors.white,
+            border: Border.all(color: Colors.grey, width: 1),
           ),
           child: IconButton(
             icon: SvgPicture.asset(
@@ -250,12 +250,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onPressed: onPressed,
           ),
         ),
-        const SizedBox(height: 5), // Space between icon and text
+        const SizedBox(height: 5),
         Text(
           label,
           style: const TextStyle(
             fontSize: 12,
-            color: Colors.blue, // Adjust text color as needed
+            color: Colors.blue,
           ),
         ),
       ],

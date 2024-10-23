@@ -8,9 +8,10 @@ class LogoutConfirmationDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.white,
       title: const Text(
         'Log out',
-        textAlign: TextAlign.center, // Center the title
+        textAlign: TextAlign.center,
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 16,
@@ -20,51 +21,51 @@ class LogoutConfirmationDialog extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.grey,
-        ),// Center the content
+        ),
       ),
       actions: <Widget>[
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Space between buttons
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Cancel button
+
             Container(
               width: 125,
-              height: 40,// Set a fixed width for the button
+              height: 40,
               decoration: BoxDecoration(
-                color: Colors.white, // White background
-                borderRadius: BorderRadius.circular(12), // Rounded corners
-                border: Border.all(color: Colors.blue), // Blue border
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.blue),
               ),
               child: TextButton(
                 style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero, // Remove padding for a full button
+                  padding: EdgeInsets.zero,
                 ),
                 child: const Text(
                   'Cancel',
-                  style: TextStyle(color: Colors.blue), // Black text
+                  style: TextStyle(color: Colors.blue),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop(); // Dismiss the dialog
+                  Navigator.of(context).pop();
                 },
               ),
             ),
-            // Logout button
+
             Container(
               width: 125,
-              height: 40,// Set a fixed width for the button
+              height: 40,
               decoration: BoxDecoration(
-                color: Colors.blue, // Blue background
-                borderRadius: BorderRadius.circular(12), // Rounded corners
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(12),
               ),
               child: TextButton(
                 style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero, // Remove padding for a full button
-                  foregroundColor: Colors.white, // White text
+                  padding: EdgeInsets.zero,
+                  foregroundColor: Colors.white,
                 ),
                 child: const Text('Logout'),
                 onPressed: () {
-                  Navigator.of(context).pop(); // Dismiss the dialog
-                  onLogoutConfirmed(); // Call the logout function
+                  Navigator.of(context).pop();
+                  onLogoutConfirmed();
                 },
               ),
             ),

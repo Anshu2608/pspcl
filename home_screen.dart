@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Center(child: Text('Home Screen')),
     const Center(child: Text('Search Screen')),
     const Center(child: Text('Notification Screen')),
-    ProfileScreen(), // Directly use the ProfileScreen here
+    ProfileScreen(),
   ];
 
   void _onTabTapped(int index) {
@@ -25,16 +25,18 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _currentIndex == 0 // Show app bar only for Home Screen
+      backgroundColor: Colors.white,
+      appBar: _currentIndex == 0
           ? AppBar(
+        backgroundColor: Colors.white,
         title: const Text('Home Screen'),
         centerTitle: true,
       )
-          : null, // No app bar for other screens
+          : null,
       body: Column(
         children: [
           Expanded(
-            child: _children[_currentIndex], // Show the currently selected child
+            child: _children[_currentIndex],
           ),
           BottomNavigationBar(
             currentIndex: _currentIndex,
@@ -62,14 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           Container(
-            color: Colors.blue, // Blue background color
-            padding: const EdgeInsets.symmetric(vertical: 8), // Padding for the text
+            color: Colors.blue,
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: const Center(
               child: Text(
                 'Punjab State Power Corporation Limited',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10, // Font size
+                  fontSize: 10, 
                   fontWeight: FontWeight.bold,
                 ),
               ),
